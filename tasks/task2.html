@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ukr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/task_style.css" />
+  </head>
+  <body>
+    <h1>Задача 2.</h1>
+    <p>Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).</p>
+    <a href="../index.html" class="back-link">Повернутися на головну сторінку</a>
+    <script>
+      //1. Вводимо необхідні дані
+      if (confirm('Почати тестування?')) {
+        let paragraphNumb = parseInt(prompt('Введіть число від 1 до 15', '0'));
+        let computerNumb, step;
+        let tryNumb = 3;
+        //2. Знаходимо результат
+        for (step = 0; step < tryNumb; step++) {
+          computerNumb = 1 + Math.floor(Math.random() * 15);
+          if (confirm(`Загадане число користувачом становить ${computerNumb}?`)) {
+            break;
+          }
+        }
+        if (step < tryNumb) document.write(`Загадане число користувачом вгадано. Воно становить  ${paragraphNumb}`);
+        else document.write(`Ви не вгадали число. Загадане число становить  ${paragraphNumb}`);
+      }
+    </script>
+  </body>
+</html>
